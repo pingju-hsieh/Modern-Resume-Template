@@ -1,5 +1,5 @@
 
-# 🪶 Modern LaTeX CV Template (Industry)
+# Modern LaTeX CV Template
 
 A clean, one-page **LaTeX resume template** designed for **industry roles** (data, consulting, strategy).  
 Minimalist, structured, and fully customizable — ready to impress recruiters.
