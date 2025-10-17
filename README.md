@@ -4,7 +4,7 @@
 A clean, one-page **LaTeX resume template** designed for **industry roles** (data, consulting, strategy).  
 Minimalist, structured, and fully customizable — ready to impress recruiters.
 
-![Preview](example_screenshot.png)
+![Preview](mock_cv.png)
 
 ---
 
