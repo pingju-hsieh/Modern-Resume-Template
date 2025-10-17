@@ -1,0 +1,160 @@
+% ======================================================================
+% Resume/CV Style
+% Copyright (c) 2025
+% Author: Ping-Ju Hsieh
+% License: You are free to use, modify, and share this template.
+% Please keep this notice or add attribution in your README.
+% ======================================================================
+
+\NeedsTeXFormat{LaTeX2e}
+
+% -------------------- Core layout & language --------------------
+\RequirePackage[a4paper, left=0.5in, right=0.5in, top=0.3in, bottom=0.3in]{geometry}
+\RequirePackage{fontspec}
+\setmainfont{Times New Roman}
+\RequirePackage[utf8]{inputenc}   % remove if compiling with XeLaTeX/LuaLaTeX only
+\RequirePackage[english]{babel}
+\RequirePackage{ragged2e}
+% ---- Line spacing ----
+\linespread{1.1}
+\setlength{\parskip}{0.3em}
+\setlength{\itemsep}{0.3em}
+
+% -------------------- Icons & symbols --------------------
+\RequirePackage{marvosym}     % \Letter, \Mobilefone, etc.
+\RequirePackage{fontawesome5} % \faLinkedin, \faGithub, etc.
+
+% -------------------- Links & colors --------------------
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+\definecolor{BerkeleyBlue}{HTML}{003262}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=BerkeleyBlue,
+  citecolor=BerkeleyBlue,
+  urlcolor=BerkeleyBlue
+}
+
+% -------------------- Typography --------------------
+\RequirePackage[protrusion]{microtype}
+\RequirePackage{graphicx}
+\RequirePackage{multicol}
+\RequirePackage{enumitem}
+
+% -------------------- Utilities --------------------
+\newcommand{\textscale}[2]{\scalebox{#1}{#2}}
+
+% -------------------- Friendly global line-breaking --------------------
+\hyphenation{Some-long-word}
+\AtBeginDocument{%
+  \sloppy
+  \hyphenpenalty=10000
+  \exhyphenpenalty=10000
+  \emergencystretch=0.2em
+}
+
+% Optional opt-in macro (unused since we set globally above)
+\newcommand{\cvsloppy}{%
+  \sloppy\hyphenpenalty=10000\exhyphenpenalty=10000\emergencystretch=1em%
+}
+
+% -------------------- Spaced rule helpers --------------------
+\newcommand{\breakvspace}[1]{\pagebreak[2]\vspace{#1}\pagebreak[2]}
+\newcommand{\nobreakvspace}[1]{\nopagebreak[4]\vspace{#1}\nopagebreak[4]}
+\newcommand{\spacedhrule}[2]{%
+  \ifdim #1>0pt \breakvspace{#1}\fi
+  \hrule
+  \ifdim #2>0pt \nobreakvspace{#2}\fi
+}
+
+% -------------------- Indented section/list environments --------------------
+\newlength{\newparindent}
+\setlength{\newparindent}{1.5em}
+
+\newenvironment{indentsection}%
+{\begin{list}{}%
+  { \setlength{\leftmargin}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\itemsep}{0pt}
+    \setlength{\topsep}{0pt} }%
+ }{\end{list}}
+
+\newenvironment{circlist}%
+{\begin{list}{$\circ$}%
+  { \setlength{\leftmargin}{\newparindent}
+    \setlength{\parsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\itemsep}{0pt}
+    \setlength{\topsep}{0pt} }%
+ }{\end{list}}
+
+% -------------------- Formatting helpers --------------------
+\newcommand{\period}[4]{#1.\ #2 -- #3.\ #4}
+
+% Section title (left-aligned, no indent)
+\newcommand{\roottitle}[1]{%
+  \nobreakvspace{0.8ex}%
+  \noindent\textbf{\large #1}\par
+}
+
+% -------------------- Entry blocks (kept in your style) --------------------
+% Preferred EDUCATION/WORK entry:
+% Line 1: Institution, Location .......................... Date
+% Line 2: Bold-Italic Program/Role
+% Line 3+: Body text or lists
+\newcommand{\headedsection}[5]{%
+  \nopagebreak[4]%
+  \begin{indentsection}
+    \item[]\textscale{1.063}{\textbf{#1}}, \textsl{#2}\hfill \textsl{#4}\\
+    \textbf{\textsl{#3}}\\
+    {#5}
+  \end{indentsection}%
+  \nopagebreak[4]%
+}
+
+% Research/Project entry:
+% Line 1: Title .......................................... Date
+% Line 2: Subtitle (advisor/role)
+% Line 3+: Body
+\newcommand{\headedsectiontwo}[4]{%
+  \nopagebreak[4]%
+  \begin{indentsection}
+    \item[]\textscale{1.063}{\textbf{#1}}\hfill \textsl{#2}\\
+    \textsl{#3}\\
+    {#4}
+  \end{indentsection}%
+  \nopagebreak[4]%
+}
+
+% Alternate forms kept for compatibility
+\newcommand{\headedsectionthree}[4]{%
+  \nopagebreak[4]%
+  \begin{indentsection}
+    \item[]\textscale{1.063}{\textbf{#1}}\\
+    \textsl{#3}\hfill \textsl{#2}\\
+    {#4}
+  \end{indentsection}%
+  \nopagebreak[4]%
+}
+
+\newcommand{\headedsectionfour}[5]{%
+  \nopagebreak[5]%
+  \begin{indentsection}
+    \item[]\textscale{1.063}{\textbf{#1}}, \textsl{#2}\hfill \textsl{#3}\\
+    \textsl{Topic:\ #4}\\
+    {#5}
+  \end{indentsection}%
+}
+
+% Skills and Awards lines
+\newcommand{\skill}[2]{\item[] \textbf{#1}{:}~#2}
+
+\newcommand{\award}[4]{%
+  \nopagebreak[4]%
+  \begin{indentsection}
+    \item[] \textbf{#1} \,|\, \textsl{#2} \hfill \textsl{#3}\\
+    #4
+  \end{indentsection}%
+  \nopagebreak[4]%
+}
